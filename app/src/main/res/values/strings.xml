@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Meme Share App</string>
+    <string name="next">next</string>
+    <string name="share">share</string>
+    <string name="meme">Meme</string>
+    <string name="select_the_topic">Select the Topic</string>
+    <string name="engineering">Engineering</string>
+    <string name="cricket">Cricket</string>
+    <string name="football">Football</string>
+    <string name="marvel">Marvel</string>
+    <string name="game_of_thrones">Game of Thrones</string>
+    <string name="the_office">The Office</string>
+    <string name="pubg">Pubg</string>
+    <string name="among_us">Among Us</string>
+    <string name="cs_go">CS:GO</string>
+    <string name="indian">Indian</string>
+    <string name="select_topic">Select Topic:</string>
+
+    <string name="selected_item">Selected item:</string>
+    <string name="save">save</string>
+
+    <string-array name="Topics">
+        <item>General</item>
+        <item>Indian</item>
+        <item>Engineering</item>
+        <item>The Office</item>
+        <item>Game of Thrones</item>
+        <item>Marvel</item>
+        <item>CS:GO</item>
+        <item>Among Us</item>
+        <item>Pubg</item>
+        <item>Cricket</item>
+        <item>Football</item>
+    </string-array>
+
+</resources>
