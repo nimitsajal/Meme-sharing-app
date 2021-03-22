@@ -28,6 +28,8 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.request.transition.Transition
+import com.google.mlkit.vision.common.InputImage
+import com.google.mlkit.vision.text.TextRecognition
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.*
 import java.net.HttpURLConnection
@@ -61,7 +63,8 @@ class MainActivity : AppCompatActivity() {
 
         btnShare.setOnClickListener{
             if(isReadStorageAllowed()){
-                shareMeme(getBitmapFromView(ivMeme))
+//                shareMeme(getBitmapFromView(ivMeme))
+                recogniseText(getBitmapFromView(ivMeme))
             }
             else{
                 requestStoragePermission()
@@ -147,6 +150,23 @@ class MainActivity : AppCompatActivity() {
 
         // Access the RequestQueue through your singleton class.
         queue.add(jsonObjectRequest)
+    }
+
+    private fun recogniseText(mBitmap: Bitmap){
+        val image = InputImage.fromBitmap(mBitmap, 0)
+
+        val recognizer = TextRecognition.getClient()
+
+        val result = recognizer.process(image)
+            .addOnSuccessListener { visionText ->
+                // Task completed successfully
+                var text = visionText.text
+                Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e ->
+                // Task failed with an exception
+                Toast.makeText(this, "FAILED", Toast.LENGTH_SHORT).show()
+            }
     }
 
     private fun saveMeme(mBitmap: Bitmap){
